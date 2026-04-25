@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="page">
+        <section class="card">
+            <div class="theme-dots" aria-hidden="true">
+                <span class="theme-dot dot-purple"></span>
+                <span class="theme-dot dot-green"></span>
+                <span class="theme-dot dot-yellow"></span>
+                <span class="theme-dot dot-red"></span>
+            </div>
+
+            <p class="eyebrow">Sistema de Login Simples</p>
+            <h1>Entrar na conta</h1>
+            <p class="description">
+                Informe o email e a senha cadastrados no banco de dados para validar o acesso.
+            </p>
+
+            <form action="login.php" method="post" class="login-form">
+                <div class="field">
+                    <label for="email">Email</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="teste@email.com"
+                        required
+                    >
+                </div>
+
+                <div class="field">
+                    <label for="senha">Senha</label>
+                    <input
+                        type="password"
+                        id="senha"
+                        name="senha"
+                        placeholder="Digite sua senha"
+                        required
+                    >
+                </div>
+
+                <button type="submit" class="submit-button">Entrar</button>
+            </form>
+
+            <div class="hint">
+                <strong>Usuario de teste:</strong> teste@email.com
+                <span>Senha:</span> 123
+            </div>
+
+            <footer class="site-footer">
+                Feito por Enzo Thaylor, Evelyn Andrade, Thayana Oliveira e Gabriela Lima.
+            </footer>
+        </section>
+    </main>
+</body>
+</html>

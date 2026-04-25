@@ -1,0 +1,329 @@
+:root {
+    --sky-top: #81d4ff;
+    --sky-bottom: #d9f6ff;
+    --hill-main: #79d13b;
+    --hill-dark: #58a921;
+    --card-bg: rgba(255, 255, 255, 0.92);
+    --text-main: #24305e;
+    --text-muted: #4d5b87;
+    --border: rgba(36, 48, 94, 0.16);
+    --shadow: 0 26px 70px rgba(41, 72, 117, 0.22);
+    --purple: #9c6cff;
+    --green: #69d44f;
+    --yellow: #ffd847;
+    --red: #ff6464;
+    --pink: #ff7bc0;
+    --blue: #46b5ff;
+    --success-bg: #e8ffe0;
+    --success-text: #1f6b27;
+    --error-bg: #fff0f0;
+    --error-text: #a32626;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+    color: var(--text-main);
+    background:
+        linear-gradient(rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.4)),
+        url("assets/teletubbies-bg.jpeg") center center / cover no-repeat fixed;
+    position: relative;
+}
+
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+body::before {
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.38)),
+        radial-gradient(circle at top right, rgba(255, 216, 71, 0.26), transparent 28%);
+}
+
+body::after {
+    display: none;
+}
+
+.page {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 32px 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.page::before,
+.page::after {
+    content: none;
+}
+
+.card {
+    width: 100%;
+    max-width: 500px;
+    padding: 34px 32px 30px;
+    border: 3px solid rgba(255, 255, 255, 0.95);
+    border-radius: 36px;
+    background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0.88));
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(14px);
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto auto 0;
+    width: 100%;
+    height: 11px;
+    background: linear-gradient(
+        90deg,
+        var(--purple) 0 25%,
+        var(--green) 25% 50%,
+        var(--yellow) 50% 75%,
+        var(--red) 75% 100%
+    );
+}
+
+.card::after {
+    content: "";
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    width: 78px;
+    height: 78px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #fff5ae 0 18%, #ffd54f 19% 100%);
+    opacity: 0.42;
+    z-index: -1;
+}
+
+.theme-dots {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin: 10px 0 20px;
+}
+
+.theme-dot {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.16);
+    animation: bob 3.8s ease-in-out infinite;
+}
+
+.theme-dot:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.theme-dot:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+.theme-dot:nth-child(4) {
+    animation-delay: 0.6s;
+}
+
+.dot-purple {
+    background: var(--purple);
+}
+
+.dot-green {
+    background: var(--green);
+}
+
+.dot-yellow {
+    background: var(--yellow);
+}
+
+.dot-red {
+    background: var(--red);
+}
+
+.eyebrow {
+    margin: 0 0 8px;
+    text-align: center;
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #8d39a7;
+}
+
+h1 {
+    margin: 0 0 12px;
+    text-align: center;
+    font-family: "Arial Rounded MT Bold", "Trebuchet MS", "Comic Sans MS", sans-serif;
+    font-size: 2.35rem;
+    line-height: 1.05;
+    color: #28356f;
+    text-shadow: 0 3px 0 rgba(255, 216, 71, 0.45);
+}
+
+.description {
+    margin: 0 0 28px;
+    text-align: center;
+    color: var(--text-muted);
+    line-height: 1.7;
+}
+
+.login-form {
+    display: grid;
+    gap: 18px;
+}
+
+.field {
+    display: grid;
+    gap: 8px;
+}
+
+.field label {
+    font-weight: 800;
+    color: #41528f;
+}
+
+.field input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 2px solid rgba(127, 154, 222, 0.4);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.96);
+    font-size: 1rem;
+    color: var(--text-main);
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.field:nth-of-type(1) input:focus {
+    border-color: var(--purple);
+    box-shadow: 0 0 0 5px rgba(156, 108, 255, 0.18);
+    transform: translateY(-1px);
+}
+
+.field:nth-of-type(2) input:focus {
+    border-color: var(--red);
+    box-shadow: 0 0 0 5px rgba(255, 100, 100, 0.18);
+    transform: translateY(-1px);
+}
+
+.submit-button,
+.back-link {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 15px 18px;
+    border: none;
+    border-radius: 18px;
+    font-size: 1rem;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.submit-button {
+    margin-top: 8px;
+    cursor: pointer;
+    color: #273163;
+    background: linear-gradient(135deg, #ffe76f, #ffae49 55%, #ff7bc0);
+    box-shadow: 0 16px 30px rgba(255, 174, 73, 0.28);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+}
+
+.submit-button:hover {
+    transform: translateY(-2px) scale(1.01);
+    box-shadow: 0 18px 34px rgba(255, 123, 192, 0.3);
+    filter: saturate(1.04);
+}
+
+.hint {
+    margin-top: 24px;
+    padding: 16px 18px;
+    border: 2px dashed rgba(70, 181, 255, 0.28);
+    border-radius: 20px;
+    background: linear-gradient(135deg, rgba(255, 245, 174, 0.5), rgba(150, 236, 111, 0.28));
+    color: var(--text-muted);
+    line-height: 1.7;
+}
+
+.hint strong,
+.hint span {
+    color: var(--text-main);
+}
+
+.site-footer {
+    margin-top: 24px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(141, 57, 167, 0.16);
+    color: #6f5a97;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    text-align: center;
+}
+
+.result-card {
+    text-align: center;
+}
+
+.result-message {
+    margin: 24px 0 18px;
+    padding: 18px;
+    border-radius: 20px;
+    line-height: 1.6;
+    font-weight: 700;
+}
+
+.result-message.success {
+    background: var(--success-bg);
+    color: var(--success-text);
+}
+
+.result-message.error {
+    background: var(--error-bg);
+    color: var(--error-text);
+}
+
+.back-link {
+    color: #fff;
+    background: linear-gradient(135deg, var(--purple), var(--blue));
+}
+
+@keyframes bob {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+@media (max-width: 520px) {
+    .page {
+        padding: 24px 16px;
+    }
+
+    .card {
+        padding: 30px 22px 26px;
+        border-radius: 28px;
+    }
+
+    h1 {
+        font-size: 1.9rem;
+    }
+}
